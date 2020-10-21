@@ -4,6 +4,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import {CssBaseline, Container} from '@material-ui/core';
 
 import theme from '../theme';
+import Navigation from "../components/layout/Navigation";
 
 const App = (props) => {
     const { Component, pageProps } = props;
@@ -18,6 +19,7 @@ const App = (props) => {
         <>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
+                <Navigation />
                 <Container>
                     <Component {...pageProps} />
                 </Container>

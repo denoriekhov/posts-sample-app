@@ -1,23 +1,25 @@
 import React from "react";
+import Articles from "../components/Articles";
 
 const fetchPosts = async () => {
-    return fetch(`${process.env.API_URL}/api/hello`)
+    return fetch(`${process.env.API_URL}/api/posts`)
         .then(res => res.json());
 };
 
 const Home = (props) => {
+    const {posts} = props;
     return (
         <>
-            <h1>{props.text}</h1>
+            <Articles items={posts}/>
         </>
     )
 };
 
 export async function getServerSideProps(context) {
-    const {text} = await fetchPosts();
+    const data = await fetchPosts();
     return {
         props: {
-            text
+            posts: data
         }
     }
 }
